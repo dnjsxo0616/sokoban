@@ -16,4 +16,14 @@ public class OutputView {
         System.out.println(contentsMessage.getFormattedPosition(row, columns));
         printNewLine();
     }
+
+    public static void printlnArray(String[][] array) {
+        for(String[] row : array) {
+            for(String column : row) {
+                System.out.println(column);
+            }
+            System.out.println();
+        }
+        printNewLine();
+    }
 }
