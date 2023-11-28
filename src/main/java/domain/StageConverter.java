@@ -5,31 +5,32 @@ public class StageConverter {
     public static int[][] convertArrays(String[][] array) {
         int[][] convertArray = new int[array.length][];
 
-        for(int i=0; i<array.length; i++) {
-            convertArray[i] = new int[array[i][0].length()];
-            for(int j=0; j<array[i].length; j++) {
-                switch (array[i][0].charAt(j)) {
-                    case ' ':
-                        convertArray[i][j] = 0;
-                        break;
-                    case 'O':
-                        convertArray[i][j] = 1;
-                        break;
-                    case 'o':
-                        convertArray[i][j] = 2;
-                        break;
-                    case 'P':
-                        convertArray[i][j] = 3;
-                        break;
-                    case '#':
-                        convertArray[i][j] = 4;
-                        break;
+        for(int i = 0; i < array.length; i++) {
+            String str = array[i][0];
+            convertArray[i] = new int[str.length()];
 
-
-                }
+            for(int j = 0; j < str.length(); j++) {
+                convertArray[i][j] = charToNumber(str.charAt(j));
             }
         }
         return convertArray;
+    }
+
+    private static int charToNumber(char ch) {
+        switch (ch) {
+            case ' ':
+                return 0;
+            case 'O':
+                return 1;
+            case 'o':
+                return 2;
+            case 'P':
+                return 3;
+            case '#':
+                return 4;
+            default:
+                return -1; // 예상치 못한 문자에 대한 처리
+        }
     }
 
     public static Integer countHall(int[][] convertArray) {
