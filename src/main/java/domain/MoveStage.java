@@ -6,6 +6,14 @@ import java.util.List;
 
 public class MoveStage {
 
+    private List<String> createMovement(String input) {
+        List<String> movement = new ArrayList<>();
+        for (char c : input.toCharArray()) {
+            movement.add(String.valueOf(c));
+        }
+        return movement;
+    }
+
     private static void validateInput(String input) {
         List<String> validInputs = Arrays.asList("w", "a", "s", "d", "q", "W", "A", "S", "D", "Q");
 
