@@ -64,5 +64,17 @@ class FirstStageTest {
                 .hasMessage("플레이어가 존재하지 않습니다.");
     }
 
+    @Test
+    @DisplayName("가로_크기_테스트")
+    void countWidth() {
+        String[][] testArray = {
+                {"  ##### "},
+                {"#OoP#"},
+                {"  #####  "}
+        };
 
+        Integer result = FirstStage.countWidth(testArray);
+
+        assertEquals(9, result);
+    }
 }
