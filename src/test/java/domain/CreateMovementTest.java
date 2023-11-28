@@ -9,36 +9,36 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MoveStageTest {
+class CreateMovementTest {
 
     @Test
     @DisplayName("입력값_변환_소문자_테스트")
     void validateLowerInput() {
-        MoveStage moveStage = new MoveStage("asdw");
+        CreateMovement createMovement = new CreateMovement("asdw");
         List<String> testList = Arrays.asList("a", "s", "d", "w");
-        assertEquals(testList, moveStage.getMovement());
+        assertEquals(testList, createMovement.getMovement());
     }
 
     @Test
     @DisplayName("입력값_변환_대문자_테스트")
     void validateUpperInput() {
-        MoveStage moveStage = new MoveStage("ASDW");
+        CreateMovement createMovement = new CreateMovement("ASDW");
         List<String> testList = Arrays.asList("A", "S", "D", "W");
-        assertEquals(testList, moveStage.getMovement());
+        assertEquals(testList, createMovement.getMovement());
     }
 
     @Test
     @DisplayName("입력값_유효성_테스트")
     void validateInput() {
-        assertDoesNotThrow(() -> new MoveStage("wasd"));
-        assertDoesNotThrow(() -> new MoveStage("q"));
-        assertDoesNotThrow(() -> new MoveStage("WASDQ"));
+        assertDoesNotThrow(() -> new CreateMovement("wasd"));
+        assertDoesNotThrow(() -> new CreateMovement("q"));
+        assertDoesNotThrow(() -> new CreateMovement("WASDQ"));
     }
 
     @Test
     @DisplayName("입력값_유효성_오류_테스트")
     void validateInputFail() {
-        Assertions.assertThatThrownBy(() -> new MoveStage("asdy"))
+        Assertions.assertThatThrownBy(() -> new CreateMovement("asdy"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("(경고) 지원하지 않는 명령입니다!");
     }

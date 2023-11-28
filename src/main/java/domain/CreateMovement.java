@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MoveStage {
+public class CreateMovement {
     private final List<String> movement;
 
-    public MoveStage(String input) {
+    public CreateMovement(String input) {
         validateInput(input);
         this.movement = createMovement(input);
     }
