@@ -7,8 +7,8 @@ public class SecondStage {
             {"#    o    #"},
             {"# Oo P oO #"},
             {"###  o  ###"},
-            {" #   O  # "},
-            {" ######## "}
+            {" #   O  #"},
+            {" ########"}
     };
 
     private int currentX;
@@ -20,6 +20,14 @@ public class SecondStage {
 
     public String[][] getSecondArray() {
         return secondArray;
+    }
+
+    public int getCurrentX() {
+        return currentX;
+    }
+
+    public int getCurrentY() {
+        return currentY;
     }
 
     public int[][] convertArrays() {
@@ -35,62 +43,71 @@ public class SecondStage {
     }
 
     private void findPlayer() {
-        for (int i = 0; i < countColumn(); i++) {
-            for (int j = 0; j < secondArray[i].length; j++) {
-                if (secondArray[i][j].equals("P")) {
+        for(int i=0; i<countColumn(); i++) {
+            for(int j=0; j<secondArray[i].length; j++) {
+                int index = secondArray[i][j].indexOf("P");
+                if (index != -1){
                     currentX = i;
-                    currentY = j;
+                    currentY = index;
                     return;
                 }
             }
         }
     }
 
-    private void validateMoveRange(int x, int y) {
-        if (x < 0 || x >= countColumn() || y < 0 || y >= secondArray[x][0].length()) {
-            throw new IllegalArgumentException("(경고) 범위를 벗어난 이동입니다.");
+    private void moveUpDownPlayer(int x, int y) {
+        if(!validateMoveSpace(x, y)) {
+            System.out.println("(경고!) 해당 명령을 수행할 수 없습니다!");
+        } else {
+            StringBuilder currentRow = new StringBuilder(secondArray[currentX][0]);
+            StringBuilder newRow = new StringBuilder(secondArray[x][0]);
+
+            currentRow.setCharAt(currentY, ' ');
+            newRow.setCharAt(y, 'P');
+
+            secondArray[currentX][0] = currentRow.toString();
+            secondArray[x][0] = newRow.toString();
+
+            currentX = x;
+            currentY = y;
         }
     }
 
-    private void validateMoveSpace(int x, int y) {
-        if (secondArray[x][0].charAt(y) != ' ') {
-            throw new IllegalArgumentException("(경고!) 해당 명령을 수행할 수 없습니다!");
+    private void RightLeftMoveToPlayer(int x, int y) {
+        if(!validateMoveSpace(x, y)) {
+            System.out.println("(경고!) 해당 명령을 수행할 수 없습니다!");
+        } else {
+            StringBuilder currentColumn = new StringBuilder(secondArray[currentX][0]);
+
+            currentColumn.setCharAt(currentY, ' ');
+            currentColumn.setCharAt(y, 'P');
+
+            secondArray[currentX][0] = currentColumn.toString();
+            secondArray[x][0] = currentColumn.toString();
+
+            currentX = x;
+            currentY = y;
         }
     }
 
-    private void moveToPlayer(int x, int y) {
-        StringBuilder currentRow = new StringBuilder(secondArray[currentX][0]);
-        StringBuilder newRow = new StringBuilder(secondArray[x][0]);
-
-        currentRow.setCharAt(currentY, ' ');
-        newRow.setCharAt(y, 'P');
-
-        secondArray[currentX][0] = currentRow.toString();
-        secondArray[x][0] = newRow.toString();
-
-        currentX = x;
-        currentY = y;
+    private boolean validateMoveSpace(int x, int y) {
+        return secondArray[x][0].charAt(y) == ' ';
     }
 
-    private void movePlayer(int x, int y) {
-        validateMoveRange(x, y);
-        validateMoveSpace(x, y);
-        moveToPlayer(x, y);
-    }
-
-    public void movePlayer(MoveDirection direction) {
+    public void moveUpdatePlayer(MoveDirection direction) {
         switch (direction) {
             case UP:
-                movePlayer(currentX - 1, currentY);
+                moveUpDownPlayer(currentX - 1, currentY);
+                System.out.println(String.valueOf(currentX));
                 break;
             case DOWN:
-                movePlayer(currentX + 1, currentY);
+                moveUpDownPlayer(currentX + 1, currentY);
                 break;
             case LEFT:
-                movePlayer(currentX, currentY - 1);
+                RightLeftMoveToPlayer(currentX, currentY - 1);
                 break;
             case RIGHT:
-                movePlayer(currentX, currentY + 1);
+                RightLeftMoveToPlayer(currentX, currentY + 1);
                 break;
             case QUIT:
                 System.out.print("Bye~");
