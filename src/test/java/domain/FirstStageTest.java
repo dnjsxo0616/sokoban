@@ -77,4 +77,18 @@ class FirstStageTest {
 
         assertEquals(9, result);
     }
+
+    @Test
+    @DisplayName("세로_크기_테스트")
+    void countColumn() {
+        String[][] testArray = {
+                {"  ##### "},
+                {"#OoP#"},
+                {"  #####  "}
+        };
+
+        Integer result = FirstStage.countColumn(testArray);
+
+        assertEquals(3, result);
+    }
 }
