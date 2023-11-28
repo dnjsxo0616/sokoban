@@ -57,4 +57,24 @@ public class SecondStage {
             throw new IllegalArgumentException("(경고!) 해당 명령을 수행할 수 없습니다!");
         }
     }
+
+    private void moveToPlayer(int x, int y) {
+        StringBuilder currentRow = new StringBuilder(secondArray[currentX][0]);
+        StringBuilder newRow = new StringBuilder(secondArray[x][0]);
+
+        currentRow.setCharAt(currentY, ' ');
+        newRow.setCharAt(y, 'P');
+
+        secondArray[currentX][0] = currentRow.toString();
+        secondArray[x][0] = newRow.toString();
+
+        currentX = x;
+        currentY = y;
+    }
+
+    private void movePlayer(int x, int y) {
+        validateMoveRange(x, y);
+        validateMoveSpace(x, y);
+        moveToPlayer(x, y);
+    }
 }
