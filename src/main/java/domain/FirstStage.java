@@ -36,4 +36,29 @@ public class FirstStage {
         }
         return convertArray;
     }
+
+    public static Integer countHall(int[][] convertArray) {
+        int count = 0;
+        for(int[] row : convertArray) {
+            for(int number : row) {
+                if(number == 1) {
+                    count ++;
+                }
+            }
+        }
+        return count;
+    }
+
+    public static Integer countBall(int[][] convertArray) {
+        int count = 0;
+        for(int[] row : convertArray) {
+            for(int number : row) {
+                if(number == 2) {
+                    count ++;
+                }
+            }
+        }
+        return count;
+    }
+
 }
