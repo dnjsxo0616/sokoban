@@ -77,4 +77,23 @@ public class SecondStage {
         validateMoveSpace(x, y);
         moveToPlayer(x, y);
     }
+
+    public void movePlayer(MoveDirection direction) {
+        switch (direction) {
+            case UP:
+                movePlayer(currentX - 1, currentY);
+                break;
+            case DOWN:
+                movePlayer(currentX + 1, currentY);
+                break;
+            case LEFT:
+                movePlayer(currentX, currentY - 1);
+                break;
+            case RIGHT:
+                movePlayer(currentX, currentY + 1);
+                break;
+            case QUIT:
+                System.exit(0);
+        }
+    }
 }
