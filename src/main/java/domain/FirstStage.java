@@ -71,4 +71,14 @@ public class FirstStage {
         }
         throw new IllegalArgumentException("플레이어가 존재하지 않습니다.");
     }
+
+    public static int countWidth(String[][] array) {
+        int maxWidth = 0;
+        for(String[] row : array) {
+            if(row[0].length() > maxWidth) {
+                maxWidth = row[0].length();
+            }
+        }
+        return maxWidth;
+    }
 }
