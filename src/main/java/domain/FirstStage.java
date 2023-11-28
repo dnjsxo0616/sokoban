@@ -65,7 +65,7 @@ public class FirstStage {
         for(int i=0; i<convertArray.length; i++) {
             for(int j=0; j<convertArray[i].length; j++) {
                 if(convertArray[i][j] == 3) {
-                    return new int[]{i, j};
+                    return new int[]{i+1, j+1};
                 }
             }
         }
