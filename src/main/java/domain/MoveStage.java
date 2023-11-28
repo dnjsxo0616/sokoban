@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MoveStage {
+    private final List<String> movement;
+
+    public MoveStage(String input) {
+        validateInput(input);
+        this.movement = createMovement(input);
+    }
 
     private List<String> createMovement(String input) {
         List<String> movement = new ArrayList<>();
@@ -22,5 +28,9 @@ public class MoveStage {
                 throw new IllegalArgumentException("(경고) 지원하지 않는 명령입니다!");
             }
         }
+    }
+
+    public List<String> getMovement() {
+        return movement;
     }
 }
