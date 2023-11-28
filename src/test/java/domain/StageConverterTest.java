@@ -1,13 +1,12 @@
 package domain;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-class FirstStageTest {
+class StageConverterTest {
     @Test
     @DisplayName("구멍_수_계산_테스트")
     void countHall() {
@@ -17,7 +16,7 @@ class FirstStageTest {
                 {0, 4, 0, 4}
         };
 
-        Integer result = FirstStage.countHall(testArray);
+        Integer result = StageConverter.countHall(testArray);
 
         assertEquals(2, result);
     }
@@ -31,7 +30,7 @@ class FirstStageTest {
                 {0, 4, 0, 4}
         };
 
-        Integer result = FirstStage.countBall(testArray);
+        Integer result = StageConverter.countBall(testArray);
 
         assertEquals(2, result);
     }
@@ -45,7 +44,7 @@ class FirstStageTest {
                 {0, 4, 0, 4}
         };
 
-        int[] result = FirstStage.findPlayerPosition(testArray);
+        int[] result = StageConverter.findPlayerPosition(testArray);
 
         assertArrayEquals(new int[]{2, 4}, result);
     }
@@ -59,7 +58,7 @@ class FirstStageTest {
                 {0, 4, 0, 4}
         };
 
-        assertThatThrownBy(() -> FirstStage.findPlayerPosition(testArray))
+        assertThatThrownBy(() -> StageConverter.findPlayerPosition(testArray))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("플레이어가 존재하지 않습니다.");
     }
@@ -73,7 +72,7 @@ class FirstStageTest {
                 {"  #####  "}
         };
 
-        Integer result = FirstStage.countWidth(testArray);
+        Integer result = StageConverter.countWidth(testArray);
 
         assertEquals(9, result);
     }
@@ -87,7 +86,7 @@ class FirstStageTest {
                 {"  #####  "}
         };
 
-        Integer result = FirstStage.countColumn(testArray);
+        Integer result = StageConverter.countColumn(testArray);
 
         assertEquals(3, result);
     }

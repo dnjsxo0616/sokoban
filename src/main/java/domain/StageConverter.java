@@ -1,13 +1,8 @@
 package domain;
 
-public class FirstStage {
-    private static String[][] array = {
-            {"#####"},
-            {"#OoP#"},
-            {"#####"}
-    };
+public class StageConverter {
 
-    private static int[][] convertArrays() {
+    public static int[][] convertArrays(String[][] array) {
         int[][] convertArray = new int[array.length][];
 
         for(int i=0; i<array.length; i++) {
