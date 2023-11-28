@@ -8,6 +8,24 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StageConverterTest {
     @Test
+    @DisplayName("변환_테스트")
+    void convertArrays() {
+        String[][] testArray = {
+                {"#####"},
+                {"#OoP#"},
+                {"#####"}
+        };
+
+        int[][] expectedArray = {
+                {4, 4, 4, 4, 4},
+                {4, 1, 2, 3, 4},
+                {4, 4, 4, 4, 4}
+        };
+
+        assertArrayEquals(expectedArray, StageConverter.convertArrays(testArray));
+    }
+
+    @Test
     @DisplayName("구멍_수_계산_테스트")
     void countHall() {
         int[][] testArray = {
