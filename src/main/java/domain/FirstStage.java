@@ -61,4 +61,14 @@ public class FirstStage {
         return count;
     }
 
+    public static int[] findPlayerPosition(int [][] convertArray) {
+        for(int i=0; i<convertArray.length; i++) {
+            for(int j=0; j<convertArray[i].length; j++) {
+                if(convertArray[i][j] == 3) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+        throw new IllegalArgumentException("플레이어가 존재하지 않습니다.");
+    }
 }
