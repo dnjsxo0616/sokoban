@@ -35,9 +35,9 @@ public class SecondStage {
     }
 
     private void findPlayer() {
-        for(int i=0; i<countColumn(); i++) {
-            for(int j=0; j<secondArray[i].length; j++) {
-                if(secondArray[i][j].equals("P")) {
+        for (int i = 0; i < countColumn(); i++) {
+            for (int j = 0; j < secondArray[i].length; j++) {
+                if (secondArray[i][j].equals("P")) {
                     currentX = i;
                     currentY = j;
                     return;
@@ -47,13 +47,13 @@ public class SecondStage {
     }
 
     private void validateMoveRange(int x, int y) {
-        if(x < 0 || x >= countColumn() || y < 0 || y >= secondArray[x][0].length()) {
+        if (x < 0 || x >= countColumn() || y < 0 || y >= secondArray[x][0].length()) {
             throw new IllegalArgumentException("(경고) 범위를 벗어난 이동입니다.");
         }
     }
 
     private void validateMoveSpace(int x, int y) {
-        if(secondArray[x][0].charAt(y) != ' ') {
+        if (secondArray[x][0].charAt(y) != ' ') {
             throw new IllegalArgumentException("(경고!) 해당 명령을 수행할 수 없습니다!");
         }
     }
@@ -93,6 +93,7 @@ public class SecondStage {
                 movePlayer(currentX, currentY + 1);
                 break;
             case QUIT:
+                System.out.print("Bye~");
                 System.exit(0);
         }
     }
