@@ -27,4 +27,20 @@ class MoveStageTest {
         assertEquals(testList, moveStage.getMovement());
     }
 
+    @Test
+    @DisplayName("입력값_유효성_테스트")
+    void validateInput() {
+        assertDoesNotThrow(() -> new MoveStage("wasd"));
+        assertDoesNotThrow(() -> new MoveStage("q"));
+        assertDoesNotThrow(() -> new MoveStage("WASDQ"));
+    }
+
+    @Test
+    @DisplayName("입력값_유효성_오류_테스트")
+    void validateInputFail() {
+        Assertions.assertThatThrownBy(() -> new MoveStage("asdy"))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("(경고) 지원하지 않는 명령입니다!");
+    }
+
 }
