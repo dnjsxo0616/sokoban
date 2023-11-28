@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class InputView {
 
-    public String readInput() {
+    public static String readInput() {
         Scanner scanner = new Scanner(System.in);
         OutputView.print(ContentsMessage.INPUT_MOVE_MESSAGE);
 
