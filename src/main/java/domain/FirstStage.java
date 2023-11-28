@@ -81,4 +81,13 @@ public class FirstStage {
         }
         return maxWidth;
     }
+
+    public static int countColumn(String[][] array) {
+        int countColumn = 0;
+        for(String[] row : array) {
+            countColumn ++;
+        }
+
+        return countColumn;
+    }
 }
