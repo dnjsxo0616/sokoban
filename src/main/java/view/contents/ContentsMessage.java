@@ -17,7 +17,7 @@ public enum ContentsMessage {
         return String.format(message, count);
     }
 
-    public String getFormattedPosition(int row, int columns) {
-        return String.format(message, row, columns);
+    public String getFormattedPosition(int[] position) {
+        return String.format(message, position[0], position[1]);
     }
 }

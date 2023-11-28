@@ -12,8 +12,8 @@ public class OutputView {
         System.out.println();
     }
 
-    public static void println(ContentsMessage contentsMessage, int row, int columns) {
-        System.out.println(contentsMessage.getFormattedPosition(row, columns));
+    public static void println(ContentsMessage contentsMessage, int[] position) {
+        System.out.println(contentsMessage.getFormattedPosition(position));
         printNewLine();
     }
 
@@ -22,8 +22,6 @@ public class OutputView {
             for(String column : row) {
                 System.out.println(column);
             }
-            System.out.println();
         }
-        printNewLine();
     }
 }
