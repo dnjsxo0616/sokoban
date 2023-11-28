@@ -45,4 +45,16 @@ public class SecondStage {
             }
         }
     }
+
+    private void validateMoveRange(int x, int y) {
+        if(x < 0 || x >= countColumn() || y < 0 || y >= secondArray[x][0].length()) {
+            throw new IllegalArgumentException("(경고) 범위를 벗어난 이동입니다.");
+        }
+    }
+
+    private void validateMoveSpace(int x, int y) {
+        if(secondArray[x][0].charAt(y) != ' ') {
+            throw new IllegalArgumentException("(경고!) 해당 명령을 수행할 수 없습니다!");
+        }
+    }
 }
