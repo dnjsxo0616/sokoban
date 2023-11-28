@@ -6,7 +6,8 @@ public enum ContentsMessage {
     HEIGHT_SIZE("세로 길이: %d"),
     HOLE_COUNT("구멍의 수: %d"),
     BALLS_COUNT("공의 수: %d"),
-    PLAYER_POSITION("플레이어 위치: %d행 %d열");
+    PLAYER_POSITION("플레이어 위치: %d행 %d열"),
+    INPUT_MOVE_MESSAGE("SOKOVAN> ");
 
     private final String message;
     ContentsMessage(String message) {
@@ -19,5 +20,9 @@ public enum ContentsMessage {
 
     public String getFormattedPosition(int[] position) {
         return String.format(message, position[0], position[1]);
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

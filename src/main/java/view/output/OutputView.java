@@ -24,4 +24,8 @@ public class OutputView {
             }
         }
     }
+
+    public static void print(ContentsMessage contentsMessage) {
+        System.out.print(contentsMessage.getMessage());
+    }
 }
