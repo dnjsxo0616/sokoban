@@ -40,6 +40,6 @@ class MoveDirectionTest {
     void testInvalidCommand() {
         Assertions.assertThatThrownBy(()-> MoveDirection.fromCommand('z'))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("(경고) 지원하지 않는 명령입니다!");
+                .hasMessage("Z: (경고) 지원하지 않는 명령입니다!");
     }
 }
