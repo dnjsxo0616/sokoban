@@ -8,6 +8,6 @@ import view.output.OutputView;
 public class Main {
     public static void main(String[] args) {
         Stage2MoveController stage2MoveController = new Stage2MoveController();
-        stage2MoveController.PlayMoveController();
+        stage2MoveController.playMoveController();
     }
 }

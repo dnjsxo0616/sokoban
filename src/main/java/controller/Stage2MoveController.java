@@ -11,35 +11,42 @@ import view.output.OutputView;
 public class Stage2MoveController {
 
 
-    public void PlayMoveController() {
+    public void playMoveController() {
         OutputView.println(ContentsMessage.STAGE_COUNT, 2);
         PlayMoveState playMoveState = new PlayMoveState();
         boolean continueInput = true;
 
         OutputView.printlnCharArray(playMoveState.getStage());
+
         while (continueInput) {
-            CreateMovement createMovement = new CreateMovement(InputView.readInput());
-            OutputView.printNewLine();
-            for (char command : createMovement.getMovement()) {
+            continueInput = userInput(playMoveState);
+        }
+    }
 
-                try {
-                    MoveDirection moveDirection = MoveDirection.fromCommand(command);
+    private boolean userInput(PlayMoveState playMoveState) {
+        CreateMovement createMovement = new CreateMovement(InputView.readInput());
+        OutputView.printNewLine();
 
-                    if(moveDirection == MoveDirection.QUIT) {
-                        OutputView.println(moveDirection.getCommandMessage());
-                        continueInput = false;
-                        break;
-                    }
+        for (char command : createMovement.getMovement()) {
+            try {
+                MoveDirection moveDirection = MoveDirection.fromCommand(command);
 
-                    playMoveState.movePlayer(moveDirection);
-                    OutputView.printNewLine();
-
-                } catch (IllegalArgumentException e) {
-                    OutputView.println(e.getMessage());
-                    OutputView.printlnCharArray(playMoveState.getStage());
+                if (moveDirection == MoveDirection.QUIT) {
+                    OutputView.println(moveDirection.getCommandMessage());
+                    return false;
                 }
+
+                playMoveState.movePlayer(moveDirection);
+                OutputView.printNewLine();
+
+            } catch (IllegalArgumentException e) {
+                OutputView.println(e.getMessage());
+                OutputView.printlnCharArray(playMoveState.getStage());
             }
         }
 
+        return true;
     }
+
+
 }
