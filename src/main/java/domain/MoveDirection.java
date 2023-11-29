@@ -24,7 +24,7 @@ public enum MoveDirection {
                 return direction;
             }
         }
-        throw new IllegalArgumentException("(경고) 지원하지 않는 명령입니다!");
+        throw new IllegalArgumentException(lowerCommand + ": (경고!) 해당 명령을 수행할 수 없습니다!");
     }
 
     public int getRowChange() {
