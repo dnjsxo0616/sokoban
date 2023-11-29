@@ -20,6 +20,9 @@ public class PlayMoveState {
     private static int playerRow;
     private static int playerCol;
 
+    public static char[][] getStage() {
+        return stage;
+    }
 
     private void findPlayer() {
         for (int i = 0; i < stage.length; i++) {
