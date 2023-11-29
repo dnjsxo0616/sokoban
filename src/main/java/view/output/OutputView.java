@@ -29,6 +29,15 @@ public class OutputView {
         }
     }
 
+    public static void printlnCharArray(char[][] array) {
+        for(char[] row : array) {
+            for(char column : row) {
+                System.out.print(column);
+            }
+            System.out.println();
+        }
+    }
+
     public static void print(ContentsMessage contentsMessage) {
         System.out.print(contentsMessage.getMessage());
     }
