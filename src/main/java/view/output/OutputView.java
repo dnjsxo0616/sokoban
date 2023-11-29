@@ -8,6 +8,10 @@ public class OutputView {
         System.out.println(contentsMessage.getFormattedMessage(count));
     }
 
+    public static void println(String message) {
+        System.out.println(message);
+    }
+
     public static void printNewLine() {
         System.out.println();
     }
