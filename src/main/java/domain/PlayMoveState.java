@@ -32,4 +32,8 @@ public class PlayMoveState {
         }
     }
 
+    private static boolean validateMove(int row, int col) {
+        return row >= 0 && row < stage.length && col >=0 && col < stage[row].length && stage[row][col] == ' ';
+    }
+
 }
