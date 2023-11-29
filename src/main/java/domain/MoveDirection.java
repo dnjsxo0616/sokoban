@@ -1,11 +1,11 @@
 package domain;
 
 public enum MoveDirection {
-    UP('w', -1, 0),
-    LEFT('a', 0, -1),
-    DOWN('s', 1, 0),
-    RIGHT('d', 0, 1),
-    QUIT('q', 0, 0);
+    UP('W', -1, 0),
+    LEFT('A', 0, -1),
+    DOWN('S', 1, 0),
+    RIGHT('D', 0, 1),
+    QUIT('Q', 0, 0);
 
     private final char command;
     private final int rowChange;
@@ -18,13 +18,13 @@ public enum MoveDirection {
     }
 
     public static MoveDirection fromCommand(char command) {
-        char lowerCommand = Character.toLowerCase(command);
+        char upperCommand = Character.toUpperCase(command);
         for (MoveDirection direction : values()) {
-            if (direction.command == lowerCommand) {
+            if (direction.command == upperCommand) {
                 return direction;
             }
         }
-        throw new IllegalArgumentException(lowerCommand + ": (경고!) 해당 명령을 수행할 수 없습니다!");
+        throw new IllegalArgumentException(upperCommand + ": (경고) 지원하지 않는 명령입니다!");
     }
 
     public int getRowChange() {
