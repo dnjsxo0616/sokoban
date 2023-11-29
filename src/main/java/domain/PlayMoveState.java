@@ -20,6 +20,7 @@ public class PlayMoveState {
     private static int playerRow;
     private static int playerCol;
 
+
     private void findPlayer() {
         for (int i = 0; i < stage.length; i++) {
             for (int j = 0; j < stage[i].length; j++) {
@@ -32,7 +33,7 @@ public class PlayMoveState {
         }
     }
 
-    private static void movePlayer(MoveDirection moveDirection) {
+    public void movePlayer(MoveDirection moveDirection) {
         int rowChange = moveDirection.getRowChange();
         int colChange = moveDirection.getColChange();
 
