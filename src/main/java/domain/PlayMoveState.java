@@ -1,5 +1,7 @@
 package domain;
 
+import view.output.OutputView;
+
 public class PlayMoveState {
 
     private static char[][] stage = {
@@ -52,8 +54,12 @@ public class PlayMoveState {
 
             playerRow = newRow;
             playerCol = newCol;
+
+            System.out.println(moveDirection.getCommandMessage());
+            OutputView.printlnCharArray(stage);
         } else {
-            System.out.println("(경고!) 해당 명령을 수행할 수 없습니다!");
+            System.out.println(moveDirection.getCommand() + ": (경고!) 해당 명령을 수행할 수 없습니다!");
+            OutputView.printlnCharArray(stage);
         }
     }
 
