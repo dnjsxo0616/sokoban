@@ -20,7 +20,7 @@ public class PlayMoveState {
     private static int playerRow;
     private static int playerCol;
 
-    public static char[][] getStage() {
+    public char[][] getStage() {
         return stage;
     }
 
