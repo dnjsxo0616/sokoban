@@ -4,7 +4,7 @@ public enum MoveDirection {
     UP('W', -1, 0, "W: 위로 이동합니다."),
     LEFT('A', 0, -1, "A: 왼쪽으로 이동합니다."),
     DOWN('S', 1, 0, "S: 아래쪽으로 이동합니다."),
-    RIGHT('D', 0, 1, "S: 아래쪽으로 이동합니다."),
+    RIGHT('D', 0, 1, "D: 오른쪽으로 이동합니다."),
     QUIT('Q', 0, 0, "Bye~");
 
     private final char command;
@@ -23,7 +23,6 @@ public enum MoveDirection {
         char upperCommand = Character.toUpperCase(command);
         for (MoveDirection direction : values()) {
             if (direction.command == upperCommand) {
-                System.out.println(direction.commandMessage);
                 return direction;
             }
         }
@@ -36,5 +35,13 @@ public enum MoveDirection {
 
     public int getColChange() {
         return colChange;
+    }
+
+    public char getCommand() {
+        return command;
+    }
+
+    public String getCommandMessage() {
+        return commandMessage;
     }
 }
